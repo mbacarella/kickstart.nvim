@@ -590,12 +590,16 @@ require('lazy').setup({
           -- XXX: this seems to be ignored currently
           cmd = {
             'arduino-language-server',
-            '-cli-config', vim.fn.expand '~/.arduino15/arduino-cli.yaml',
-            '-cli',        'arduino-cli',
-            '-fqbn',       'esp32:esp32:esp32c3',
-            '-clangd',     'clangd',
+            '-cli-config',
+            vim.fn.expand '~/.arduino15/arduino-cli.yaml',
+            '-cli',
+            'arduino-cli',
+            '-fqbn',
+            'esp32:esp32:esp32c3',
+            '-clangd',
+            'clangd',
           },
-          -- override the updated 'capabilities' defined above by kickstart; otherwise these 
+          -- override the updated 'capabilities' defined above by kickstart; otherwise these
           -- ones will make the arduino-language-server panic,
           -- see https://github.com/neovim/nvim-lspconfig/pull/2533
           capabilities = {
@@ -655,7 +659,7 @@ require('lazy').setup({
 
       require('mason-lspconfig').setup {
         ensure_installed = {
-          "arduino_language_server" -- mason might do this anyway but lets be sure
+          'arduino_language_server', -- mason might do this anyway but lets be sure
         },
         automatic_installation = false,
         handlers = {
@@ -692,10 +696,10 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { 
-          -- c = true, 
+        local disable_filetypes = {
+          -- c = true,
           -- cpp = true,
-          lua = true
+          lua = true,
         }
         if disable_filetypes[vim.bo[bufnr].filetype] then
           return nil
@@ -835,8 +839,8 @@ require('lazy').setup({
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'tokyonight'
-      vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
-      vim.api.nvim_set_hl(0, "NormalNC", { bg = "#111111" })
+      vim.api.nvim_set_hl(0, 'Normal', { bg = '#000000' })
+      vim.api.nvim_set_hl(0, 'NormalNC', { bg = '#111111' })
     end,
   },
 
